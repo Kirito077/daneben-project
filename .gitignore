@@ -1,0 +1,39 @@
+# Prerequisites / Build Output
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.out
+*.map
+build/
+bin/
+out/
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# KiCad temporary & backup files
+*-backups/
+*.bak
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-save.kicad_pcb
+*-save.kicad_sch
+_autosave-*
+*.tmp
+*.lck
+fp-info-cache
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.swp
+*~
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
