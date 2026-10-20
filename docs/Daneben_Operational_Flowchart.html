@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daneben! Operational Workflow & Architecture</title>
+<style>
+  @page {
+    size: A3 landscape;
+    margin: 8mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0b1120;
+    color: #f1f5f9;
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* Flow Pipeline */
+  .flow-container {
+    width: 100%;
+    max-width: 1450px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Step Row */
+  .step-row {
+    display: grid;
+    grid-template-columns: 240px 1fr 1fr 220px;
+    gap: 14px;
+    background: #1e293b;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    padding: 14px 18px;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Phase Badge Column */
+  .phase-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .phase-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .phase-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .phase-time {
+    font-size: 11px;
+    color: #94a3b8;
+  }
+
+  /* Component Box */
+  .component-box {
+    background: #0f172a;
+    border-radius: 8px;
+    border-left: 3px solid #38bdf8;
+    padding: 10px 14px;
+  }
+
+  .box-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+  }
+
+  .component-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 2px;
+  }
+
+  .component-spec {
+    font-size: 11.5px;
+    color: #cbd5e1;
+    line-height: 1.35;
+  }
+
+  /* Function Box */
+  .function-box {
+    background: #0f172a;
+    border-radius: 8px;
+    border-left: 3px solid #34d399;
+    padding: 10px 14px;
+  }
+
+  .function-box .component-name {
+    color: #34d399;
+  }
+
+  /* Decision / Output Column */
+  .decision-box {
+    background: #0f172a;
+    border-radius: 8px;
+    border-left: 3px solid #f59e0b;
+    padding: 10px 14px;
+    font-size: 11.5px;
+    color: #e2e8f0;
+    line-height: 1.35;
+  }
+
+  .decision-box .box-label {
+    color: #f59e0b;
+  }
+
+  /* Colors per phase */
+  .row-standby .phase-badge { background: #0c4a6e; color: #38bdf8; }
+  .row-debounce .phase-badge { background: #78350f; color: #fbbf24; }
+  .row-camera .phase-badge { background: #581c87; color: #c084fc; }
+  .row-ai .phase-badge { background: #831843; color: #f472b6; }
+  .row-internal .phase-badge { background: #064e3b; color: #34d399; }
+  .row-audio .phase-badge { background: #1e3a8a; color: #60a5fa; }
+  .row-cloud .phase-badge { background: #4c1d95; color: #a78bfa; }
+
+  /* Arrow Connector */
+  .flow-arrow {
+    text-align: center;
+    font-size: 18px;
+    color: #475569;
+    margin: -8px 0;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Daneben! — Step-by-Step Device Operational Flowchart</h1>
+  <p>Detailed Pipeline Mapping Every Operational State to its Specific Hardware Components and Logic Functions</p>
+</div>
+
+<div class="flow-container">
+
+  <!-- Step 1: Standby -->
+  <div class="step-row row-standby">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 1</span>
+      <div class="phase-title">Low-Power Presence Ping</div>
+      <div class="phase-time">Continuous · Every 500ms</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">JSN-SR04T External Ultrasonic</div>
+      <div class="component-spec">Waterproof sealed transducer pointing downward at pavement beside the bin</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">Distance Echo Measurement</div>
+      <div class="component-spec">Emits 40kHz ultrasound burst (25ms @ 35mA). ESP32 stays in light sleep between pings. Baseline draw: ~3.4mA.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Decision Logic</div>
+      <strong>Object &lt; 1.5m?</strong><br>
+      • NO: Sleep &amp; repeat<br>
+      • YES: Trigger Phase 2
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- Step 2: Debounce -->
+  <div class="step-row row-debounce">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 2</span>
+      <div class="phase-title">Pedestrian Filter (Debounce)</div>
+      <div class="phase-time">Duration: 8.0 Seconds</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">ESP32-S3 Hardware RTC Timer</div>
+      <div class="component-spec">Camera, AI, and Wi-Fi stay completely unpowered via hardware MOSFETs</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">Stationary Object Persistence Check</div>
+      <div class="component-spec">Times object presence. Passersby walking past clear within 2–3s &rarr; Discard event immediately. Zero photos taken. GDPR 100% safe.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Decision Logic</div>
+      <strong>Still present after 8s?</strong><br>
+      • NO: Return to Phase 1<br>
+      • YES: Wake Camera (Phase 3)
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- Step 3: Camera Capture -->
+  <div class="step-row row-camera">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 3</span>
+      <div class="phase-title">Ground-Level Image Capture</div>
+      <div class="phase-time">Duration: ~100 Milliseconds</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">OV2640 Camera + 8MB PSRAM</div>
+      <div class="component-spec">Borosilicate optical window, angled 45° down. Physical view frames pavement only (&le;0.8m).</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">DMA Framebuffer Transfer</div>
+      <div class="component-spec">Powers up camera rail via MOSFET. Captures single 96×96 or 160×160 RGB frame. Directly streams raw bytes into PSRAM.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Next Action</div>
+      Frame stored in PSRAM Tensor Arena &rarr; Pass to Phase 4
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- Step 4: AI Inference -->
+  <div class="step-row row-ai">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 4</span>
+      <div class="phase-title">On-Device TinyML Inference</div>
+      <div class="phase-time">Duration: ~220 Milliseconds</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">ESP32-S3 Vector SIMD Engine</div>
+      <div class="component-spec">Dual-core 240MHz running ESP-NN hardware-accelerated 128-bit vector instructions</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">Edge Impulse Neural Network</div>
+      <div class="component-spec">Runs quantized INT8 MobileNetV2/FOMO model (~350KB). Classifies image into: Empty Ground vs Trash Bag vs Cardboard Box.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Decision Logic</div>
+      <strong>Trash Confirmed (>80%)?</strong><br>
+      • NO: False alarm &rarr; Sleep<br>
+      • YES: Trigger Phase 5
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- Step 5: Internal Bin Capacity -->
+  <div class="step-row row-internal">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 5</span>
+      <div class="phase-title">Internal Bin Capacity Check</div>
+      <div class="phase-time">Duration: ~50 Milliseconds</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">JSN-SR04T #2 Internal Lid Sensor</div>
+      <div class="component-spec">Mounted on underside of bin lid pointing down into the waste container</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">Fill-Level Depth Measurement</div>
+      <div class="component-spec">Fires ultrasound pulse inside the bin. Measures distance to top of garbage. Distance &lt; 20cm means container is completely full.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Decision Logic</div>
+      <strong>Space available inside?</strong><br>
+      • YES: Trigger Voice (Phase 6)<br>
+      • NO: Skip voice &rarr; Go to Phase 7
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- Step 6: Audio Warning & Audit -->
+  <div class="step-row row-audio">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 6</span>
+      <div class="phase-title">Interactive Voice Deterrent</div>
+      <div class="phase-time">Duration: 3.0 Seconds (Audio)</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">MAX98357A I2S Amp + 2W Speaker</div>
+      <div class="component-spec">Acoustic vents protected by waterproof ePTFE hydrophobic membrane (Gore-Tex)</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">Spoken Prompt &amp; Compliance Audit</div>
+      <div class="component-spec">Plays WAV prompt: "Bitte den Müll in die Tonne werfen. Es ist noch Platz!". Waits 5 mins: logs whether trash was picked up or ignored.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Next Action</div>
+      Log status flag: "Warning Played / Ignored" &rarr; Go to Phase 7
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+
+  <!-- Step 7: Cloud Telemetry -->
+  <div class="step-row row-cloud">
+    <div class="phase-col">
+      <span class="phase-badge">Phase 7</span>
+      <div class="phase-title">Cloud Alert &amp; Fleet Telemetry</div>
+      <div class="phase-time">Duration: ~1.0 Second</div>
+    </div>
+    <div class="component-box">
+      <div class="box-label">Hardware Component</div>
+      <div class="component-name">ESP32-S3 Wi-Fi Radio (or LoRaWAN)</div>
+      <div class="component-spec">Radio stays OFF 99.9% of time. Powers on ONLY during verified state change.</div>
+    </div>
+    <div class="function-box">
+      <div class="box-label">System Functionality</div>
+      <div class="component-name">MQTT Telemetry Packet Broadcast</div>
+      <div class="component-spec">Transmits JSON: {"bin_id": 402, "illegal_dump": true, "bin_full": false, "warning_ignored": true, "batt_v": 3.84}. Reroutes city trucks.</div>
+    </div>
+    <div class="decision-box">
+      <div class="box-label">Cycle Completion</div>
+      Radio shuts down &rarr; Cut camera power &rarr; Enter Light Sleep (Phase 1)
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

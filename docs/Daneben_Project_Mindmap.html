@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daneben! Project Mind Map</title>
+<style>
+  @page {
+    size: A3 landscape;
+    margin: 8mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    margin: 0;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* Canvas / Grid */
+  .mindmap-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Center Hub */
+  .center-hub {
+    background: linear-gradient(135deg, #1e3a8a, #0369a1);
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+    border-radius: 20px;
+    padding: 16px 32px;
+    text-align: center;
+    max-width: 440px;
+    z-index: 10;
+  }
+
+  .center-hub h2 {
+    font-size: 20px;
+    margin: 0 0 4px 0;
+    color: #ffffff;
+    font-weight: 800;
+  }
+
+  .center-hub .tagline {
+    font-size: 12px;
+    color: #bae6fd;
+    font-weight: 500;
+  }
+
+  /* Branches Grid */
+  .branches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  @media (max-width: 1000px) {
+    .branches-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Branch Cards */
+  .branch-card {
+    background: #1e293b;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .branch-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .branch-icon {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .branch-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* Color Schemes */
+  .branch-sensing .branch-icon { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #0284c7; }
+  .branch-sensing { border-top: 3px solid #38bdf8; }
+  .branch-sensing .branch-title { color: #38bdf8; }
+
+  .branch-ai .branch-icon { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid #9333ea; }
+  .branch-ai { border-top: 3px solid #c084fc; }
+  .branch-ai .branch-title { color: #c084fc; }
+
+  .branch-power .branch-icon { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid #d97706; }
+  .branch-power { border-top: 3px solid #fbbf24; }
+  .branch-power .branch-title { color: #fbbf24; }
+
+  .branch-enclosure .branch-icon { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid #16a34a; }
+  .branch-enclosure { border-top: 3px solid #4ade80; }
+  .branch-enclosure .branch-title { color: #4ade80; }
+
+  .branch-cloud .branch-icon { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid #e11d48; }
+  .branch-cloud { border-top: 3px solid #fb7185; }
+  .branch-cloud .branch-title { color: #fb7185; }
+
+  .branch-business .branch-icon { background: rgba(129, 140, 248, 0.15); color: #818cf8; border: 1px solid #4f46e5; }
+  .branch-business { border-top: 3px solid #818cf8; }
+  .branch-business .branch-title { color: #818cf8; }
+
+  /* Subnodes */
+  .subnodes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .subnode {
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: 1px solid #334155;
+  }
+
+  .subnode-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .subnode-items {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin: 0;
+    padding-left: 14px;
+  }
+
+  .subnode-items li {
+    margin-bottom: 2px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 9.5px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .badge-cyan { background: #0c4a6e; color: #38bdf8; }
+  .badge-purple { background: #581c87; color: #d8b4fe; }
+  .badge-green { background: #14532d; color: #86efac; }
+  .badge-amber { background: #78350f; color: #fde68a; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Daneben! — System Architecture Mind Map</h1>
+  <p>Hochschule Niederrhein (HSNR) · 5. Semester · Mikro-controller · Retrofittable Smart Waste Detector</p>
+</div>
+
+<div class="mindmap-container">
+
+  <!-- Core Hub -->
+  <div class="center-hub">
+    <h2>🗑️ DANEBEN! SYSTEM CORE</h2>
+    <div class="tagline">Retrofittable IoT Edge AI & Environmental Deterrent for Waste Bins</div>
+  </div>
+
+  <!-- 6 Strategic Branches Grid -->
+  <div class="branches-grid">
+
+    <!-- Branch 1: Sensing -->
+    <div class="branch-card branch-sensing">
+      <div class="branch-header">
+        <div class="branch-icon">📡</div>
+        <div class="branch-title">1. Dual-Sensing Architecture</div>
+      </div>
+      <div class="subnodes-list">
+        <div class="subnode">
+          <div class="subnode-title">External Ground Presence <span class="badge badge-cyan">JSN-SR04T</span></div>
+          <ul class="subnode-items">
+            <li>Waterproof ultrasonic transducer (Ø 22mm)</li>
+            <li>Monitors pavement zone &lt; 1.5m beside bin</li>
+            <li>Low-power polling: 2 pings/sec @ 35mA for 25ms</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Internal Bin Fill Level <span class="badge badge-cyan">Lid Sensor</span></div>
+          <ul class="subnode-items">
+            <li>Down-facing sealed ultrasonic under bin lid</li>
+            <li>Depth &lt; 20cm triggers "Bin Full" status</li>
+            <li>Only activates if external dump event occurs</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Two-Stage Debounce Filter <span class="badge badge-cyan">GDPR Safe</span></div>
+          <ul class="subnode-items">
+            <li>8.0-second persistence timer filter</li>
+            <li>Pedestrians walking past (&lt; 3s) are discarded</li>
+            <li>Zero false alerts; prevents camera snapping faces</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branch 2: Edge AI -->
+    <div class="branch-card branch-ai">
+      <div class="branch-header">
+        <div class="branch-icon">🧠</div>
+        <div class="branch-title">2. On-Device Edge AI Vision</div>
+      </div>
+      <div class="subnodes-list">
+        <div class="subnode">
+          <div class="subnode-title">Optical Pipeline <span class="badge badge-purple">OV2640</span></div>
+          <ul class="subnode-items">
+            <li>Mounted at 45° downward angle (ground only)</li>
+            <li>Captures 96×96 or 160×160 RGB frame</li>
+            <li>Direct Memory Access (DMA) to 8MB PSRAM</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">TinyML Neural Network <span class="badge badge-purple">Edge Impulse</span></div>
+          <ul class="subnode-items">
+            <li>MobileNetV2 / FOMO object detection</li>
+            <li>INT8 Post-Training Quantization (~350 KB size)</li>
+            <li>ESP-NN vector SIMD acceleration (~220ms inference)</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Target Classes <span class="badge badge-purple">Softmax</span></div>
+          <ul class="subnode-items">
+            <li>Empty Pavement / Asphalt Ground</li>
+            <li>Plastic Garbage Bags &amp; Cardboard Boxes</li>
+            <li>Ignores passing animals, shoes, and shadows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branch 3: Hardware & Power -->
+    <div class="branch-card branch-power">
+      <div class="branch-header">
+        <div class="branch-icon">⚡</div>
+        <div class="branch-title">3. Hardware &amp; Power System</div>
+      </div>
+      <div class="subnodes-list">
+        <div class="subnode">
+          <div class="subnode-title">Microcontroller <span class="badge badge-amber">ESP32-S3</span></div>
+          <ul class="subnode-items">
+            <li>Seeed Studio XIAO ESP32-S3 Sense module</li>
+            <li>Dual-Core Xtensa LX7 @ 240 MHz + 8MB PSRAM</li>
+            <li>Integrated 2.4GHz Wi-Fi + Bluetooth 5.0 LE</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Power Subsystem <span class="badge badge-amber">Solar MPPT</span></div>
+          <ul class="subnode-items">
+            <li>18650 Protected Li-Ion cell (3.7V, 3400mAh)</li>
+            <li>5V–6V 1.5W Monocrystalline solar panel</li>
+            <li>CN3791 MPPT Solar charge controller board</li>
+            <li>Avg standby current: ~3.4mA (~35 days without sun)</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Custom Circuit Board <span class="badge badge-amber">KiCad</span></div>
+          <ul class="subnode-items">
+            <li>"Inverted T" PCB design matching housing profile</li>
+            <li>Status LEDs (D1, D2), tactile button (SW1), JST pins</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branch 4: Enclosure & IP67 -->
+    <div class="branch-card branch-enclosure">
+      <div class="branch-header">
+        <div class="branch-icon">🛡️</div>
+        <div class="branch-title">4. IP67 Enclosure &amp; Mechanics</div>
+      </div>
+      <div class="subnodes-list">
+        <div class="subnode">
+          <div class="subnode-title">Housing Geometry <span class="badge badge-green">Polycarbonate</span></div>
+          <ul class="subnode-items">
+            <li>Dimensions: 120 × 80 × 150 mm (UV-stabilized)</li>
+            <li>20° sloped roof (sheds rain/snow; solar angle)</li>
+            <li>Protruding perimeter drip edge over seams</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Waterproof Sealing <span class="badge badge-green">IP67 Rated</span></div>
+          <ul class="subnode-items">
+            <li>Camera: Ø 20mm Borosilicate glass + UV adhesive</li>
+            <li>Speaker: Hydrophobic ePTFE membrane (Gore-Tex)</li>
+            <li>Continuous silicone O-ring compressed by M4 screws</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Installation &amp; Battery Tube <span class="badge badge-green">Tool-Free</span></div>
+          <ul class="subnode-items">
+            <li>Bottom threaded battery tube (swap without opening box)</li>
+            <li>Rear slots for stainless hose clamps / industrial ties</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branch 5: Cloud & Telemetry -->
+    <div class="branch-card branch-cloud">
+      <div class="branch-header">
+        <div class="branch-icon">📢</div>
+        <div class="branch-title">5. Deterrent &amp; Cloud Telemetry</div>
+      </div>
+      <div class="subnodes-list">
+        <div class="subnode">
+          <div class="subnode-title">Acoustic Deterrent <span class="badge badge-cyan">I2S MAX98357A</span></div>
+          <ul class="subnode-items">
+            <li>3W Class-D amp + 40mm waterproof speaker</li>
+            <li>Prompt: "Bitte in die Tonne werfen. Es ist noch Platz!"</li>
+            <li>Only sounds if internal sensor reports space</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Compliance Logging <span class="badge badge-cyan">Auditing</span></div>
+          <ul class="subnode-items">
+            <li>Checks if trash is picked up after 5 minutes</li>
+            <li>Logs "Warning Ignored" rate with exact timestamps</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Fleet Telemetry <span class="badge badge-cyan">MQTT / LoRa</span></div>
+          <ul class="subnode-items">
+            <li>Payload: ILLEGAL_DUMPING, BIN_FULL, BATTERY_VOLTS</li>
+            <li>Transmits only on state change to save battery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branch 6: Business & Feasibility -->
+    <div class="branch-card branch-business">
+      <div class="branch-header">
+        <div class="branch-icon">💼</div>
+        <div class="branch-title">6. Business &amp; Municipal Impact</div>
+      </div>
+      <div class="subnodes-list">
+        <div class="subnode">
+          <div class="subnode-title">Target Customers <span class="badge badge-purple">Smart Cities</span></div>
+          <ul class="subnode-items">
+            <li>Municipalities &amp; City Cleansing Departments</li>
+            <li>Private waste contractors (Remondis, Veolia)</li>
+            <li>Housing associations &amp; property managers</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Business Model <span class="badge badge-purple">SaaS</span></div>
+          <ul class="subnode-items">
+            <li>Low-cost hardware lease (~$150/unit)</li>
+            <li>Monthly SaaS dashboard fee: $3.00 – $5.00/bin/month</li>
+            <li>Dynamic truck dispatch prevents empty routes</li>
+          </ul>
+        </div>
+        <div class="subnode">
+          <div class="subnode-title">Reliability &amp; Lifespan <span class="badge badge-purple">5 Years</span></div>
+          <ul class="subnode-items">
+            <li>Solid-state (zero moving parts to wear out)</li>
+            <li>LiFePO4/Li-Ion cells + solar = 5-year outdoor life</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
