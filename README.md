@@ -14,14 +14,20 @@
 ## 📂 Repository Structure
 
 * 📁 **`docs/`**
-  * [`CONVERSATION_HISTORY.md`](docs/CONVERSATION_HISTORY.md) — Complete transcript and architectural evolution of all discussions, trade-offs (RoboDog vs. Daneben), and engineering decisions.
-  * [`Daneben_Operational_Flowchart.pdf`](docs/Daneben_Operational_Flowchart.pdf) — Complete operational flowchart mapping every state to its hardware component and software functionality.
-  * [`Daneben_Operational_Flowchart.html`](docs/Daneben_Operational_Flowchart.html) — Interactive visual operational pipeline.
-  * [`Daneben_Project_Mindmap.pdf`](docs/Daneben_Project_Mindmap.pdf) — Presentation-ready visual Mind Map (Landscape PDF).
-  * [`Daneben_Project_Mindmap.html`](docs/Daneben_Project_Mindmap.html) — Interactive browser-based visual Mind Map dashboard.
-  * [`Project_Mindmap.md`](docs/Project_Mindmap.md) — Raw Markdown/Mermaid Mind Map chart.
-  * [`Project_Workflow_and_Market_Analysis.md`](docs/Project_Workflow_and_Market_Analysis.md) — Problem statement, market analysis (municipalities, smart cities, housing), SaaS revenue model, and 5-year lifespan calculation.
-  * [`AI_and_System_Expansions.md`](docs/AI_and_System_Expansions.md) — Comparison between pixel-differencing and Edge AI (Edge Impulse), internal container capacity sensing, and smart fleet telemetry.
+  * **Presentations & Pitches (1-Minute Sales Pitch):**
+    * [`Daneben_1Min_Sales_Pitch_Visual_Edition.pptx`](docs/Daneben_1Min_Sales_Pitch_Visual_Edition.pptx) ([🇩🇪 DE Version](docs/Daneben_1Min_Sales_Pitch_Visual_Edition_DE.pptx)) — **Visual Doodle Edition**: High-tempo 60-second pitch with animated vector illustrations, exploded 3D CAD hardware, and research citations.
+    * [`Daneben_1Min_Sales_Pitch.pptx`](docs/Daneben_1Min_Sales_Pitch.pptx) ([🇩🇪 DE Version](docs/Daneben_1Min_Sales_Pitch_DE.pptx)) — **Standard Edition**: Clean white presentation with side-by-side analytical cards, labeled exploded hardware, and timed speaker notes.
+  * **Visual Architecture & Mindmaps:**
+    * [`Daneben_Operational_Flowchart.pdf`](docs/Daneben_Operational_Flowchart.pdf) & [`.html`](docs/Daneben_Operational_Flowchart.html) — Complete operational flowchart mapping every state to its hardware component and software functionality.
+    * [`Daneben_Project_Mindmap.pdf`](docs/Daneben_Project_Mindmap.pdf) & [`.html`](docs/Daneben_Project_Mindmap.html) — Presentation-ready visual Mind Map (Landscape PDF & interactive dashboard).
+    * [`Project_Mindmap.md`](docs/Project_Mindmap.md) — Raw Markdown/Mermaid Mind Map chart.
+  * **Technical Reports & Blueprints:**
+    * [`Enclosure_3D_Design_Report_Detailed.pdf`](docs/Enclosure_3D_Design_Report_Detailed.pdf) — 2D Orthographic Blueprint (Front, Side, Top views) with exact millimeter dimensions, waterproofing details, and exploded 3D renders.
+    * [`Enclosure_3D_Design_Report.pdf`](docs/Enclosure_3D_Design_Report.pdf) — Conceptual 3D external and exploded visualizations.
+  * **Engineering Documentation & Analysis:**
+    * [`CONVERSATION_HISTORY.md`](docs/CONVERSATION_HISTORY.md) — Complete transcript and architectural evolution of all discussions, trade-offs (RoboDog vs. Daneben), and engineering decisions.
+    * [`Project_Workflow_and_Market_Analysis.md`](docs/Project_Workflow_and_Market_Analysis.md) — Problem statement, market analysis (municipalities, smart cities, housing), SaaS revenue model, and 5-year lifespan calculation.
+    * [`AI_and_System_Expansions.md`](docs/AI_and_System_Expansions.md) — Comparison between pixel-differencing and Edge AI (Edge Impulse), internal container capacity sensing, and smart fleet telemetry.
 * 📁 **`hardware/`**
   * [`daneben_enclosure.scad`](hardware/daneben_enclosure.scad) — Parametric 3D CAD model for OpenSCAD.
   * [`daneben_enclosure.stl`](hardware/daneben_enclosure.stl) — Compiled 3D mesh model ready to open directly in **Autodesk Inventor** or Windows 3D Viewer.
@@ -32,9 +38,6 @@
 * 📁 **`src/`**
   * [`main.cpp`](src/main.cpp) — ESP32-S3 firmware: 2-stage distance debounce filter (8-second timer), Edge Impulse camera inference, and MQTT publishing.
   * [`internal_sensor.cpp`](src/internal_sensor.cpp) — Internal container fill level detection and MAX98357A I2S acoustic deterrent logic.
-* 📄 **Technical Reports:**
-  * [`Enclosure_3D_Design_Report_Detailed.pdf`](Enclosure_3D_Design_Report_Detailed.pdf) — 2D Orthographic Blueprint (Front, Side, Top views) with exact millimeter dimensions, waterproofing details, and exploded 3D renders.
-  * [`Enclosure_3D_Design_Report.pdf`](Enclosure_3D_Design_Report.pdf) — Conceptual 3D external and exploded visualizations.
 
 ---
 

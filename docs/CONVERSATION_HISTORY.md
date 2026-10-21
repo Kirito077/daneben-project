@@ -180,21 +180,28 @@ To avoid false triggers and strictly comply with privacy regulations (GDPR: no p
 ```
 Daneben Projekt/
 ├── docs/
-│   ├── CONVERSATION_HISTORY.md                 <-- Full transcript and architectural record
-│   ├── Project_Workflow_and_Market_Analysis.md <-- Business plan, market segments, SaaS model
-│   └── AI_and_System_Expansions.md             <-- AI classification, acoustic deterrent, MQTT
+│   ├── CONVERSATION_HISTORY.md                     <-- Full transcript and architectural record
+│   ├── Project_Workflow_and_Market_Analysis.md     <-- Business plan, market segments, SaaS model
+│   ├── AI_and_System_Expansions.md                 <-- AI classification, acoustic deterrent, MQTT
+│   ├── Daneben_Operational_Flowchart.pdf / .html   <-- Hardware-to-software operational state flowchart
+│   ├── Daneben_Project_Mindmap.pdf / .html / .md   <-- Visual project mind map dashboards
+│   ├── Daneben_1Min_Sales_Pitch*.pptx              <-- 1-minute sales pitch slide decks (EN & DE)
+│   ├── Enclosure_3D_Design_Report.pdf              <-- Conceptual 3D renders and exterior overview
+│   └── Enclosure_3D_Design_Report_Detailed.pdf     <-- 2D orthographic blueprints with exact millimeter dimensions
 ├── hardware/
-│   ├── daneben_enclosure.scad                  <-- Parametric 3D CAD model (OpenSCAD)
-│   ├── Enclosure_and_Hardware.md               <-- IP67 specs, battery cartridge, PCB layout
-│   ├── Parts_List.md                           <-- Complete Bill of Materials (BOM)
-│   └── Daneben circuit board/                  <-- KiCad PCB schematics, layouts, and routing
+│   ├── daneben_enclosure.scad                      <-- Parametric 3D CAD model (OpenSCAD)
+│   ├── daneben_enclosure.stl                       <-- Compiled 3D CAD mesh (Inventor/Windows 3D)
+│   ├── Enclosure_and_Hardware.md                   <-- IP67 specs, battery cartridge, PCB layout
+│   ├── Parts_List.md                               <-- Technical Bill of Materials (BOM)
+│   ├── Procurement_Parts_List.md                   <-- Purchasing list with store links
+│   └── Daneben circuit board/                      <-- KiCad PCB schematics, layouts, and routing
 │       ├── Daneben circuit board.kicad_pcb
 │       ├── Daneben circuit board.kicad_sch
-│       └── Daneben circuit board.kicad_pro
+│       ├── Daneben circuit board.kicad_pro
+│       └── Daneben circuit board.kicad_prl
 ├── src/
-│   ├── main.cpp                                <-- External sensor, debounce, AI, and MQTT firmware
-│   └── internal_sensor.cpp                     <-- Internal fill detection and audio warning firmware
-├── Enclosure_3D_Design_Report.pdf              <-- Conceptual 3D renders and exterior overview
-├── Enclosure_3D_Design_Report_Detailed.pdf     <-- 2D orthographic blueprints with exact millimeter dimensions
-└── README.md                                   <-- Project master summary and quickstart
+│   ├── main.cpp                                    <-- External sensor, debounce, AI, and MQTT firmware
+│   └── internal_sensor.cpp                         <-- Internal fill detection and audio warning firmware
+├── CONTRIBUTING.md                                 <-- Team collaboration and branch protection guide
+└── README.md                                       <-- Project master summary and quickstart
 ```
