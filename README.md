@@ -17,6 +17,7 @@
   * **Presentations & Pitches (1-Minute Sales Pitch):**
     * [`Daneben_1Min_Sales_Pitch_Visual_Edition.pptx`](docs/Daneben_1Min_Sales_Pitch_Visual_Edition.pptx) ([🇩🇪 DE Version](docs/Daneben_1Min_Sales_Pitch_Visual_Edition_DE.pptx)) — **Visual Doodle Edition**: High-tempo 60-second pitch with animated vector illustrations, exploded 3D CAD hardware, and research citations.
     * [`Daneben_1Min_Sales_Pitch.pptx`](docs/Daneben_1Min_Sales_Pitch.pptx) ([🇩🇪 DE Version](docs/Daneben_1Min_Sales_Pitch_DE.pptx)) — **Standard Edition**: Clean white presentation with side-by-side analytical cards, labeled exploded hardware, and timed speaker notes.
+    * [`Daneben_1Min_Pitch_Script_EN.pdf`](docs/Daneben_1Min_Pitch_Script_EN.pdf) ([🇩🇪 DE Version](docs/Daneben_1Min_Pitch_Script_DE.pdf)) — **Spoken Pitch Scripts**: Precise 60-second word-for-word presentation delivery script with timed stage directions (0–15s Hook, 15–30s Problem, 30–45s Solution, 45–60s CTA).
   * **Visual Architecture & Mindmaps:**
     * [`Daneben_Operational_Flowchart.pdf`](docs/Daneben_Operational_Flowchart.pdf) & [`.html`](docs/Daneben_Operational_Flowchart.html) — Complete operational flowchart mapping every state to its hardware component and software functionality.
     * [`Daneben_Project_Mindmap.pdf`](docs/Daneben_Project_Mindmap.pdf) & [`.html`](docs/Daneben_Project_Mindmap.html) — Presentation-ready visual Mind Map (Landscape PDF & interactive dashboard).
