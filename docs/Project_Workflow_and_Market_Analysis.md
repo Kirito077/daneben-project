@@ -2,11 +2,11 @@
 
 ## 1. Workflow: From Problem to Solution
 * **The Problem**: People frequently leave trash bags and cardboard boxes *beside* waste bins rather than putting them inside. This leads to hygiene issues, pest attraction, aesthetic degradation of the area, and significantly increased manual labor costs for waste management companies who have to manually clean the area.
-* **The Solution**: A retrofittable, solar-powered, Edge-AI smart sensor ("Daneben!") attached to the outside of the bin. It detects deposited trash, distinguishes it from passing pedestrians to maintain privacy, and reports the status. An internal expansion sensor checks if the bin is actually full and plays an acoustic warning to encourage correct disposal.
+* **The Solution**: A retrofittable, solar-powered, Edge-AI smart sensor ("Daneben!") attached to the outside of the bin. It detects deposited trash, distinguishes it from passing pedestrians to maintain privacy, and reports the status. An internal expansion sensor, mounted securely to the stationary upper collar angled at ~25° toward the central cone, checks fill capacity (continuous 0–100% telematics) with zero moving wires during municipal emptying and plays an acoustic warning to encourage correct disposal.
 * **How it is Achieved**: Using a two-stage trigger system (Ultra-low-power distance sensor -> wakes up an Edge AI Camera). The camera runs a lightweight ML model to classify the object. If waste is detected, an IoT payload (MQTT/LoRaWAN) is sent to the cloud.
 
 ## 2. Usability and Contexts
-* **Usability**: The device is designed as a "Set and Forget" modular unit. It requires zero external wiring. 
+* **Usability**: The device is designed as a "Set and Forget" modular unit. It requires zero external grid wiring, and the internal transducer cable remains 100% static on the rigid collar, completely immune to lid flipping or liner hoisting. 
 * **Contexts**: It can be used in residential complexes, public city parks, university campuses, and commercial waste collection points. 
 * **Ease of Installation**: The enclosure features a universal strapping system. It can be mounted using heavy-duty industrial zip-ties, steel banding straps, or heavy-duty outdoor VHB tape directly onto standard 120L/240L/1100L wheelie bins. Installation takes under 2 minutes per bin.
 

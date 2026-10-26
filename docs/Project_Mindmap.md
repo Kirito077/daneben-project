@@ -23,8 +23,8 @@ flowchart TD
     S1 --> S1a["JSN-SR04T Waterproof Ultrasonic"]:::detail
     S1 --> S1b["Monitors ground zone < 1.5m"]:::detail
     B1 --> S2["Internal Bin Capacity"]:::sub
-    S2 --> S2a["Lid-mounted JSN-SR04T Sensor"]:::detail
-    S2 --> S2b["Depth < 20cm flags Bin Full"]:::detail
+    S2 --> S2a["Stationary Collar Angled Sensor (~25°)"]:::detail
+    S2 --> S2b["Continuous 0-100% Tracking (Zero Wire Snag)"]:::detail
     B1 --> S3["Two-Stage Debounce Filter"]:::sub
     S3 --> S3a["8-Second Persistence Timer"]:::detail
     S3 --> S3b["Discards passersby < 3s (GDPR Safe)"]:::detail

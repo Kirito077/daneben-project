@@ -1,0 +1,49 @@
+#VRML V2.0 utf8
+# Sizable 12mm x 12mm Tactile Pushbutton Switch
+Transform {
+  children [
+    # Black base body
+    Transform {
+      translation 0 0 0.787401574
+      children [
+        Shape {
+          appearance Appearance {
+            material Material { diffuseColor 0.1 0.1 0.1 }
+          }
+          geometry Box { size 4.724409444 4.724409444 1.574803148 }
+        }
+      ]
+    }
+    # Metal top plate
+    Transform {
+      translation 0 0 1.63385826605
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.75 0.75 0.78
+              specularColor 0.8 0.8 0.8
+            }
+          }
+          geometry Box { size 4.724409444 4.724409444 0.11811023609999999 }
+        }
+      ]
+    }
+    # Sizable Round Plunger Button Cap
+    Transform {
+      translation 0 0 2.4803149580999997
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.85 0.15 0.15
+              specularColor 0.5 0.5 0.5
+              shininess 0.4
+            }
+          }
+          geometry Cylinder { radius 1.3385826758 height 1.574803148 }
+        }
+      ]
+    }
+  ]
+}

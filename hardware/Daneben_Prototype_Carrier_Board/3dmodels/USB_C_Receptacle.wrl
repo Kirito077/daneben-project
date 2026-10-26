@@ -1,0 +1,32 @@
+#VRML V2.0 utf8
+# USB Type-C Female Receptacle
+Transform {
+  children [
+    # Metal Shell
+    Transform {
+      translation 0 0 0.6299212592000001
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.82 0.82 0.85
+              specularColor 0.9 0.9 0.9
+              shininess 0.8
+            }
+          }
+          geometry Box { size 3.5039370043 2.8346456664 1.2598425184000002 }
+        }
+      ]
+    }
+    # Black Inner Tongue
+    Transform {
+      translation 0 0.787401574 0.6299212592000001
+      children [
+        Shape {
+          appearance Appearance { material Material { diffuseColor 0.05 0.05 0.05 } }
+          geometry Box { size 2.5590551155 1.3779527544999999 0.27559055089999995 }
+        }
+      ]
+    }
+  ]
+}

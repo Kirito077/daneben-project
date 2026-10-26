@@ -1,0 +1,140 @@
+#VRML V2.0 utf8
+# AJ-SR04M / JSN-SR04T Waterproof Ultrasonic Sensor Board
+# Size: 41.5mm x 28.5mm x 1.6mm PCB
+Transform {
+  children [
+    # 1. Main Deep Blue PCB
+    Transform {
+      translation 0 0 0.31496062960000004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.05 0.22 0.55
+              specularColor 0.2 0.3 0.6
+              shininess 0.3
+            }
+          }
+          geometry Box { size 16.3385826605 11.2204724295 0.6299212592000001 }
+        }
+      ]
+    }
+    # 2. Cylindrical Metal Transducer Socket on Left Edge (where probe cable plugs in)
+    Transform {
+      translation -6.1023621985 0 2.4015748006999997
+      rotation 0 1 0 1.5708
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.82 0.82 0.85
+              specularColor 0.95 0.95 0.95
+              shininess 0.8
+            }
+          }
+          geometry Cylinder { radius 1.7716535415 height 3.7401574765 }
+        },
+        # Cable Boot / Strain relief exiting to the left
+        Transform {
+          translation 0 -3.543307083 0
+          children [
+            Shape {
+              appearance Appearance {
+                material Material { diffuseColor 0.1 0.1 0.1 }
+              }
+              geometry Cylinder { radius 1.2598425184000002 height 3.149606296 }
+            },
+            # Heavy shielded probe wire running outward
+            Transform {
+              translation 0 -3.149606296 0
+              children [
+                Shape {
+                  appearance Appearance {
+                    material Material { diffuseColor 0.15 0.15 0.15 }
+                  }
+                  geometry Cylinder { radius 0.8661417314000001 height 4.724409444 }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    # 3. Microcontroller / Signal Processing ASIC
+    Transform {
+      translation 0.787401574 0 0.9055118100999999
+      children [
+        Shape {
+          appearance Appearance {
+            material Material { diffuseColor 0.12 0.12 0.12 }
+          }
+          geometry Box { size 3.93700787 2.362204722 0.5511811017999999 }
+        }
+      ]
+    }
+    # 4. High-Q Ultrasonic Transformer Coil
+    Transform {
+      translation 1.968503935 3.149606296 1.6141732266999997
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.72
+              specularColor 0.8 0.8 0.8
+            }
+          }
+          geometry Box { size 2.7559055089999998 2.7559055089999998 1.968503935 }
+        }
+      ]
+    }
+    # 5. 4-Pin Header on Right Edge (facing carrier socket)
+    Transform {
+      translation 7.086614166 0 -0.9842519675
+      children [
+        Shape {
+          appearance Appearance {
+            material Material { diffuseColor 0.85 0.75 0.2 }
+          }
+          geometry Box { size 0.25196850368 2.99999999694 2.362204722 }
+        }
+      ]
+    }
+    # 6. M2.5 Standoff Mounting Corner Pads
+    Transform {
+      translation -7.2834645595 -4.5275590505 0.31496062960000004
+      children [
+        Shape {
+          appearance Appearance { material Material { diffuseColor 0.8 0.7 0.2 } }
+          geometry Cylinder { radius 0.9842519675 height 0.64960629855 }
+        }
+      ]
+    },
+    Transform {
+      translation 7.2834645595 -4.5275590505 0.31496062960000004
+      children [
+        Shape {
+          appearance Appearance { material Material { diffuseColor 0.8 0.7 0.2 } }
+          geometry Cylinder { radius 0.9842519675 height 0.64960629855 }
+        }
+      ]
+    },
+    Transform {
+      translation -7.2834645595 4.5275590505 0.31496062960000004
+      children [
+        Shape {
+          appearance Appearance { material Material { diffuseColor 0.8 0.7 0.2 } }
+          geometry Cylinder { radius 0.9842519675 height 0.64960629855 }
+        }
+      ]
+    },
+    Transform {
+      translation 7.2834645595 4.5275590505 0.31496062960000004
+      children [
+        Shape {
+          appearance Appearance { material Material { diffuseColor 0.8 0.7 0.2 } }
+          geometry Cylinder { radius 0.9842519675 height 0.64960629855 }
+        }
+      ]
+    }
+  ]
+}

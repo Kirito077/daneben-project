@@ -299,17 +299,17 @@
     </div>
     <div class="component-box">
       <div class="box-label">Hardware Component</div>
-      <div class="component-name">JSN-SR04T #2 Internal Lid Sensor</div>
-      <div class="component-spec">Mounted on underside of bin lid pointing down into the waste container</div>
+      <div class="component-name">JSN-SR04T #2 Collar Angled Sensor</div>
+      <div class="component-spec">Mounted on stationary upper collar angled ~25° toward center cone (zero wire movement during emptying)</div>
     </div>
     <div class="function-box">
       <div class="box-label">System Functionality</div>
-      <div class="component-name">Fill-Level Depth Measurement</div>
-      <div class="component-spec">Fires ultrasound pulse inside the bin. Measures distance to top of garbage. Distance &lt; 20cm means container is completely full.</div>
+      <div class="component-name">Continuous 0–100% Capacity Telematics</div>
+      <div class="component-spec">Fires ultrasound pulse down hypotenuse to central cone. Firmware converts to vertical depth via trigonometry ($h = d \cdot \cos(25^\circ)$) for continuous capacity tracking. Fill &ge; 90% flags full container.</div>
     </div>
     <div class="decision-box">
       <div class="box-label">Decision Logic</div>
-      <strong>Space available inside?</strong><br>
+      <strong>Space available inside (&lt; 90%)?</strong><br>
       • YES: Trigger Voice (Phase 6)<br>
       • NO: Skip voice &rarr; Go to Phase 7
     </div>

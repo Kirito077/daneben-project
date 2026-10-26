@@ -31,7 +31,7 @@ To build the functional prototype without waiting weeks for overseas shipping, a
 ### 2.2 Distance Sensors: JSN-SR04T 2.0 / 3.0 Waterproof Ultrasonic Sensor (2 Units Needed)
 * **Role:**
   * *Unit 1 (External):* Detects presence of deposited objects beside the container (<1.5 m) to trigger the debounce timer.
-  * *Unit 2 (Internal):* Mounted underneath the container lid pointing down to measure residual bin depth (<20 cm = full).
+  * *Unit 2 (Internal):* Mounted on the stationary upper collar / inner rim angled downward (~25°) toward the central trash cone (eliminates moving wires across swinging lids, prevents snagging during municipal emptying, and delivers continuous 0–100% capacity tracking).
 * **Physical Dimensions:** Transducer diameter: **Ø 22.0 mm** (flange Ø 25.0 mm, mounting cutout Ø 20.0 mm), Transducer depth: **18.5 mm**, Sealed cable: **2.0 m – 2.5 m**, Driver PCB: **41.5 mm × 28.5 mm × 16.0 mm**.
 
 | Store / Provider | Exact Model / Listing | Approx. Price (1x / 2x) | Shipping Cost (DE) | Total Est. (2 Units) | Delivery Speed | Direct Link |
@@ -131,9 +131,9 @@ To build the functional prototype without waiting weeks for overseas shipping, a
 
 | Component | Specific Value & Footprint | Store | Approx. Pack Price | Link |
 | :--- | :--- | :--- | :---: | :--- |
-| **Tactile Push Button (`SW1`)** | 6.0 mm × 6.0 mm × 5.0 mm THT, 2-pin / 4-pin | BerryBase / Reichelt | **€0.25** (or €2.99 / 10-pack) | [Reichelt Taster](https://www.reichelt.de/kurzhubtaster-6x6mm-hoehe-5-0mm-taster-3301-p109404.html) |
-| **Metal Film Resistors (`R1`, `R2`)** | 330 Ω (0.25W, 1%, Axial DIN0207) | BerryBase | **€0.15** (or €1.99 / 20-pack) | [BerryBase 330 Ohm](https://www.berrybase.de/widerstand-metallschicht-330-ohm-0-25w-1) |
-| **Diffused LEDs (`D1`, `D2`)** | 5 mm Diffused LED (Green & Red) | BerryBase / Reichelt | **€0.20** each | [BerryBase 5mm LED](https://www.berrybase.de/led-5mm-bedrahtet) |
+| **Tactile Push Buttons (`SW_CAL_IN`, `SW_CAL_OUT`)** | 2× 6×6mm / 12×12mm Tactile Buttons (Inside & Outside Cal) | BerryBase / Reichelt | **€0.50** (or €2.99 / 10-pack) | [Reichelt Taster](https://www.reichelt.de/kurzhubtaster-6x6mm-hoehe-5-0mm-taster-3301-p109404.html) |
+| **Metal Film Resistors (`R1`, `R2`, `R_PULL`)** | 330 Ω (LEDs) & 10 kΩ (Button Pull-ups) | BerryBase | **€0.30** (or €1.99 / 20-pack) | [BerryBase 330 Ohm](https://www.berrybase.de/widerstand-metallschicht-330-ohm-0-25w-1) |
+| **Status LEDs (`LED_CAL_IN`, `LED_CAL_OUT`, `LED_PWR`)** | 3× 3mm / 5mm Diffused LEDs (Amber, Blue, Green) | BerryBase / Reichelt | **€0.60** total | [BerryBase 5mm LED](https://www.berrybase.de/led-5mm-bedrahtet) |
 | **Connector Socket (`J1`)** | 2-Pin 2.54 mm Socket / JST-XH 2.54 mm 2-pin | BerryBase | **€0.35** | [BerryBase 2-Pin](https://www.berrybase.de/buchsenleiste-1x2-polig-rm-2-54) |
 
 ---

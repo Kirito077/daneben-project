@@ -17,6 +17,7 @@
 6. [Sensing & Edge AI Pipeline](#6-sensing--edge-ai-pipeline)
 7. [System Expansions (Internal Bin Sensor & Deterrent)](#7-system-expansions-internal-bin-sensor--deterrent)
 8. [Project File Map & Generated Assets](#8-project-file-map--generated-assets)
+9. [Showcase & Demonstration Budget Prototype Template (Chat Sync)](#9-showcase--demonstration-budget-prototype-template-chat-sync)
 
 ---
 
@@ -194,6 +195,7 @@ Daneben Projekt/
 │   ├── Enclosure_and_Hardware.md                   <-- IP67 specs, battery cartridge, PCB layout
 │   ├── Parts_List.md                               <-- Technical Bill of Materials (BOM)
 │   ├── Procurement_Parts_List.md                   <-- Purchasing list with store links
+│   ├── Budget_Showcase_Prototype_Template.md       <-- Low-cost (~€28) tabletop demonstration template
 │   └── Daneben circuit board/                      <-- KiCad PCB schematics, layouts, and routing
 │       ├── Daneben circuit board.kicad_pcb
 │       ├── Daneben circuit board.kicad_sch
@@ -205,3 +207,28 @@ Daneben Projekt/
 ├── CONTRIBUTING.md                                 <-- Team collaboration and branch protection guide
 └── README.md                                       <-- Project master summary and quickstart
 ```
+
+---
+
+## 9. Showcase & Demonstration Budget Prototype Template (Chat Sync)
+
+> **Sync Reference:** Synchronized from conversation `acbbfc46-4396-4515-bb9d-f0dbe357848c` back into primary project architecture `793ac40f-0ce7-467c-98f3-dcd30f32e172`.  
+> **Status:** Auxiliary Demonstration Template — The core outdoor design (IP67, LiFePO4, Solar MPPT) remains untouched as the master municipal standard.
+
+### Context & Goal
+For intermediate coursework evaluations, demo-day presentations, and professor showcases, assembling the complete outdoor-hardened production unit (~€100 retail) introduces unnecessary costs and logistics (handling flammable battery cells, UV-cured glass adhesive, IP-rated seals). A **Budget Showcase Prototype** was defined to demonstrate 100% of the interactive software and hardware workflow on an academic budget (~€28 total).
+
+### Non-Destructive Streamlining: What is Cut vs. Retained
+1. **Power Subsystem:** Cut 2× LiFePO4 18650 cells, CN3791 MPPT board, and 1.5W solar panel. Powered directly via **5V USB-C** from any phone charger, laptop port, or USB power bank. Eliminates power failure risks during live indoor demos.
+2. **Weatherproofing / Sealing:** Cut all silicone O-rings, borosilicate optical discs, ePTFE hydrophobic acoustic membranes, and stainless bin hose clamps. Mounted in an open tabletop demo stand or desktop diorama.
+3. **Ultrasonic Sensing:** Replaced the heavy, sealed JSN-SR04T dual transducers (~€17–€25) with **2× standard HC-SR04 / HC-SR04P sensors (~€3.50 for both)**. Because the trigger pulse (10µs) and echo duration calculations are pin-identical, `src/main.cpp` and `src/internal_sensor.cpp` execute without any code modifications.
+4. **Compute & Vision:** Retained the **Seeed Studio XIAO ESP32-S3 Sense** (~€14.90–€17.99) for full on-device Edge Impulse ML inference, frame buffering (8MB PSRAM), and Wi-Fi/MQTT dispatch.
+5. **Acoustic Deterrent:** Retained the **MAX98357A I2S Class-D Amp + 8Ω speaker** (~€6.00) so the physical voice warning (*"Bitte den Müll in die Tonne werfen. Es ist noch Platz!"*) can be heard live during presentations.
+
+### Tabletop Showcase Diorama Demonstration
+Instead of requiring a full-scale 120-liter outdoor container, the prototype is set up as a desk-scale model:
+* **Zone 1 (Pavement Area):** External HC-SR04 + camera pointed at a marked tabletop area. Placing a small model trash box triggers the 8-second debounce timer and Edge Impulse classification.
+* **Zone 2 (Container Capacity):** Internal HC-SR04 pointed downward into a desktop pen-holder bin. If depth > 20 cm, the speaker sounds the deterrent; if blocked/full (< 20 cm), the reprimand is suppressed and an MQTT overflow ticket is transmitted to the laptop screen.
+
+*Full details and wiring pinout are documented in [`hardware/Budget_Showcase_Prototype_Template.md`](../hardware/Budget_Showcase_Prototype_Template.md).*
+

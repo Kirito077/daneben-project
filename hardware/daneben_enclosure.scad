@@ -71,6 +71,13 @@ module enclosure() {
         translate([-5, depth/2, 20])
         rotate([0, 90, 0])
         cylinder(h=20, r=11, $fn=50);
+
+        // --- 9. Internal Sensor Cable Gland Port (Rear Collar Feed) ---
+        // M12 hole (12mm dia) for waterproof cable gland routing the 2.5m coaxial cable 
+        // directly to the stationary upper collar sensor bracket (angled at ~25° into center cone)
+        translate([width/2, depth + 5, 60])
+        rotate([90, 0, 0])
+        cylinder(h=15, r=6, $fn=30);
     }
 }
 

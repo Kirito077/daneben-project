@@ -1,0 +1,242 @@
+** Drc report for Daneben_Prototype_Carrier_Board.kicad_pcb **
+** Created on 2026-10-22T19:44:56+0200 **
+
+** Found 7 DRC violations **
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(34.0000 mm, 6.5000 mm): PCB text 'HSNR - MIKROCONTROLLER (5.SEM)' on F.Silkscreen
+    @(24.0000 mm, 5.6200 mm): Reference field of J_PWR_AUX
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(34.0000 mm, 6.5000 mm): PCB text 'HSNR - MIKROCONTROLLER (5.SEM)' on F.Silkscreen
+    @(22.6200 mm, 6.6200 mm): Segment of J_PWR_AUX on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(41.0000 mm, 21.0000 mm): PCB text 'SEEED XIAO S3' on F.Silkscreen
+    @(38.0000 mm, 21.2300 mm): Reference field of J_MCU_L
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(9.0000 mm, 21.6200 mm): Reference field of J_OUT_5V
+    @(16.0000 mm, 21.6200 mm): Reference field of J_OUT_3V3
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(16.0000 mm, 21.6200 mm): Reference field of J_OUT_3V3
+    @(23.0000 mm, 21.6200 mm): Reference field of J_OUT_GND
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(80.0000 mm, 23.6200 mm): Reference field of J_SPK_HDR
+    @(80.0000 mm, 22.7200 mm): Polygon of J_SPK on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(84.0000 mm, 33.6200 mm): Reference field of J_EXP
+    @(84.0000 mm, 33.0000 mm): PCB text 'EXPANSION' on F.Silkscreen
+
+** Found 51 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(14.0000 mm, 65.6200 mm): PTH pad 4 [GND] of J_EXT
+    @(40.0000 mm, 65.6200 mm): PTH pad 4 [GND] of J_INT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(17.0800 mm, 8.0000 mm): PTH pad 2 [GND] of J_PWR_IN
+    @(24.0000 mm, 10.5400 mm): PTH pad 2 [GND] of J_PWR_AUX
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(28.0000 mm, 17.0000 mm): PTH pad 1 [GND] of LED_PWR
+    @(24.0000 mm, 10.5400 mm): PTH pad 2 [GND] of J_PWR_AUX
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(28.0000 mm, 17.0000 mm): PTH pad 1 [GND] of LED_PWR
+    @(23.0000 mm, 24.0000 mm): Track [GND] on F.Cu, length 12.7000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(33.1600 mm, 46.0000 mm): PTH pad 2 [GND] of R_EXT2
+    @(23.0000 mm, 24.0000 mm): Track [GND] on F.Cu, length 12.7000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(33.1600 mm, 46.0000 mm): PTH pad 2 [GND] of R_EXT2
+    @(40.0000 mm, 65.6200 mm): PTH pad 4 [GND] of J_INT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 31.6200 mm): PTH pad 4 [GND] of J_MCU_R
+    @(53.2400 mm, 36.7000 mm): PTH pad 6 [GND] of J_MCU_R
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 31.6200 mm): PTH pad 4 [GND] of J_MCU_R
+    @(68.0000 mm, 28.7000 mm): PTH pad 6 [GND] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 36.7000 mm): PTH pad 6 [GND] of J_MCU_R
+    @(33.1600 mm, 46.0000 mm): PTH pad 2 [GND] of R_EXT2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(61.1600 mm, 46.0000 mm): PTH pad 2 [GND] of R_INT2
+    @(53.2400 mm, 36.7000 mm): PTH pad 6 [GND] of J_MCU_R
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 23.6200 mm): PTH pad 4 [GND] of J_AMP
+    @(68.0000 mm, 28.7000 mm): PTH pad 6 [GND] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 23.6200 mm): PTH pad 4 [GND] of J_AMP
+    @(53.0000 mm, 10.0000 mm): PTH pad 1 [GND] of LED_STATUS
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 58.5000 mm): PTH pad 2 [GND] of SW_TEST
+    @(61.1600 mm, 46.0000 mm): PTH pad 2 [GND] of R_INT2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(74.5000 mm, 58.5000 mm): PTH pad 2 [GND] of SW_TEST
+    @(68.0000 mm, 58.5000 mm): PTH pad 2 [GND] of SW_TEST
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(74.5000 mm, 58.5000 mm): PTH pad 2 [GND] of SW_TEST
+    @(84.0000 mm, 41.0800 mm): PTH pad 3 [GND] of J_EXP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(9.0000 mm, 24.0000 mm): Track [+5V] on F.Cu, length 7.6200 mm
+    @(14.0000 mm, 58.0000 mm): PTH pad 1 [+5V] of J_EXT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(12.0000 mm, 8.0000 mm): PTH pad 1 [+5V] of J_PWR_IN
+    @(9.0000 mm, 24.0000 mm): Track [+5V] on F.Cu, length 7.6200 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(14.0000 mm, 58.0000 mm): PTH pad 1 [+5V] of J_EXT
+    @(40.0000 mm, 58.0000 mm): PTH pad 1 [+5V] of J_INT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(24.0000 mm, 8.0000 mm): PTH pad 1 [+5V] of J_PWR_AUX
+    @(12.0000 mm, 8.0000 mm): PTH pad 1 [+5V] of J_PWR_IN
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 39.2400 mm): PTH pad 7 [+5V] of J_MCU_R
+    @(40.0000 mm, 58.0000 mm): PTH pad 1 [+5V] of J_INT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 31.2400 mm): PTH pad 7 [+5V] of J_AMP
+    @(53.2400 mm, 39.2400 mm): PTH pad 7 [+5V] of J_MCU_R
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(84.0000 mm, 36.0000 mm): PTH pad 1 [+5V] of J_EXP
+    @(68.0000 mm, 31.2400 mm): PTH pad 7 [+5V] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(16.0000 mm, 24.0000 mm): Track [+3V3] on F.Cu, length 7.6200 mm
+    @(11.0000 mm, 17.0000 mm): PTH pad 1 [+3V3] of R_PWR
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(16.0000 mm, 24.0000 mm): Track [+3V3] on F.Cu, length 7.6200 mm
+    @(21.1600 mm, 17.0000 mm): PTH pad 2 [+3V3] of R_PWR
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(30.5400 mm, 17.0000 mm): PTH pad 2 [+3V3] of LED_PWR
+    @(21.1600 mm, 17.0000 mm): PTH pad 2 [+3V3] of R_PWR
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 34.1600 mm): PTH pad 5 [+3V3] of J_MCU_R
+    @(68.0000 mm, 26.1600 mm): PTH pad 5 [+3V3] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 34.1600 mm): PTH pad 5 [+3V3] of J_MCU_R
+    @(30.5400 mm, 17.0000 mm): PTH pad 2 [+3V3] of LED_PWR
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 44.0000 mm): PTH pad 1 [+3V3] of R_TEST
+    @(84.0000 mm, 38.5400 mm): PTH pad 2 [+3V3] of J_EXP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 44.0000 mm): PTH pad 1 [+3V3] of R_TEST
+    @(53.2400 mm, 34.1600 mm): PTH pad 5 [+3V3] of J_MCU_R
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(14.0000 mm, 60.5400 mm): PTH pad 2 [TRIG_EXT] of J_EXT
+    @(38.0000 mm, 29.0800 mm): PTH pad 3 [TRIG_EXT] of J_MCU_L
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(19.1600 mm, 46.0000 mm): Track [ECHO_EXT] on F.Cu, length 3.8400 mm
+    @(38.0000 mm, 31.6200 mm): PTH pad 4 [ECHO_EXT] of J_MCU_L
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(9.0000 mm, 46.0000 mm): PTH pad 1 [ECHO_EXT_RAW] of R_EXT1
+    @(14.0000 mm, 63.0800 mm): PTH pad 3 [ECHO_EXT_RAW] of J_EXT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(40.0000 mm, 60.5400 mm): PTH pad 2 [TRIG_INT] of J_INT
+    @(53.2400 mm, 26.5400 mm): PTH pad 2 [TRIG_INT] of J_MCU_R
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(47.1600 mm, 46.0000 mm): Track [ECHO_INT] on F.Cu, length 3.8400 mm
+    @(53.2400 mm, 29.0800 mm): PTH pad 3 [ECHO_INT] of J_MCU_R
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(37.0000 mm, 46.0000 mm): PTH pad 1 [ECHO_INT_RAW] of R_INT1
+    @(40.0000 mm, 63.0800 mm): PTH pad 3 [ECHO_INT_RAW] of J_INT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 18.5400 mm): PTH pad 2 [I2S_BCLK] of J_AMP
+    @(38.0000 mm, 34.1600 mm): PTH pad 5 [I2S_BCLK] of J_MCU_L
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(84.0000 mm, 43.6200 mm): PTH pad 4 [I2S_BCLK] of J_EXP
+    @(68.0000 mm, 18.5400 mm): PTH pad 2 [I2S_BCLK] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 16.0000 mm): PTH pad 1 [I2S_LRC] of J_AMP
+    @(38.0000 mm, 36.7000 mm): PTH pad 6 [I2S_LRC] of J_MCU_L
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(84.0000 mm, 46.1600 mm): PTH pad 5 [I2S_LRC] of J_EXP
+    @(68.0000 mm, 16.0000 mm): PTH pad 1 [I2S_LRC] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 21.0800 mm): PTH pad 3 [I2S_DIN] of J_AMP
+    @(38.0000 mm, 39.2400 mm): PTH pad 7 [I2S_DIN] of J_MCU_L
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(84.0000 mm, 48.7000 mm): PTH pad 6 [I2S_DIN] of J_EXP
+    @(68.0000 mm, 21.0800 mm): PTH pad 3 [I2S_DIN] of J_AMP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(48.1600 mm, 10.0000 mm): PTH pad 2 [STATUS_LED] of R_STAT
+    @(38.0000 mm, 10.0000 mm): PTH pad 1 [STATUS_LED] of R_STAT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 24.0000 mm): PTH pad 1 [STATUS_LED] of J_MCU_R
+    @(55.5400 mm, 10.0000 mm): PTH pad 2 [STATUS_LED] of LED_STATUS
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(53.2400 mm, 24.0000 mm): PTH pad 1 [STATUS_LED] of J_MCU_R
+    @(84.0000 mm, 51.2400 mm): PTH pad 7 [STATUS_LED] of J_EXP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(55.5400 mm, 10.0000 mm): PTH pad 2 [STATUS_LED] of LED_STATUS
+    @(48.1600 mm, 10.0000 mm): PTH pad 2 [STATUS_LED] of R_STAT
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(38.0000 mm, 26.5400 mm): PTH pad 2 [BTN_TEST] of J_MCU_L
+    @(68.0000 mm, 54.0000 mm): PTH pad 1 [BTN_TEST] of SW_TEST
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0000 mm, 54.0000 mm): PTH pad 1 [BTN_TEST] of SW_TEST
+    @(74.5000 mm, 54.0000 mm): PTH pad 1 [BTN_TEST] of SW_TEST
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(74.5000 mm, 54.0000 mm): PTH pad 1 [BTN_TEST] of SW_TEST
+    @(78.1600 mm, 44.0000 mm): PTH pad 2 [BTN_TEST] of R_TEST
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(38.0000 mm, 24.0000 mm): PTH pad 1 [AUX_GPIO] of J_MCU_L
+    @(84.0000 mm, 53.7800 mm): PTH pad 8 [AUX_GPIO] of J_EXP
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(80.0000 mm, 18.0000 mm): PTH pad 1 [SPK_POS] of J_SPK
+    @(80.0000 mm, 26.0000 mm): PTH pad 1 [SPK_POS] of J_SPK_HDR
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(80.0000 mm, 28.5400 mm): PTH pad 2 [SPK_NEG] of J_SPK_HDR
+    @(85.0800 mm, 18.0000 mm): PTH pad 2 [SPK_NEG] of J_SPK
+
+** Found 0 Footprint errors **
+
+** End of Report **
