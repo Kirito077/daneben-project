@@ -1,20 +1,5 @@
-ERC report (2026-10-26T14:54:16+0100, Encoding UTF8)
+ERC report (2026-10-26T14:58:58+0100, Encoding UTF8)
 
 ***** Sheet /
-[label_dangling]: Label not connected to anything
-    ; error
-    @(35.56 mm, 63.50 mm): Label 'D_NEG'
-[label_dangling]: Label not connected to anything
-    ; error
-    @(35.56 mm, 66.04 mm): Label 'D_POS'
-[wire_dangling]: Wires not connected to anything
-    ; error
-    @(125.73 mm, 50.80 mm): Horizontal Wire, length 3.81 mm
-[wire_dangling]: Wires not connected to anything
-    ; error
-    @(240.03 mm, 185.42 mm): Horizontal Wire, length 3.81 mm
-[wire_dangling]: Wires not connected to anything
-    ; error
-    @(240.03 mm, 220.98 mm): Horizontal Wire, length 3.81 mm
 
- ** ERC messages: 5  Errors 5  Warnings 0
+ ** ERC messages: 0  Errors 0  Warnings 0

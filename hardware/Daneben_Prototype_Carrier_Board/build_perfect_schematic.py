@@ -315,13 +315,12 @@ def build_perfect_schematic():
 
     # R_LED_OUT & LED_CAL_OUT at Y = 185.42
     # R_LED_OUT at (236.22, 185.42, 90) -> Pin 1: (232.41, 185.42), Pin 2: (240.03, 185.42)
+    # LED_CAL_OUT at (243.84, 185.42, 180) -> Pin 2 (A) at (240.03, 185.42), Pin 1 (K) at (247.65, 185.42)
     sch += add_sym("Device:R", "R_LED_OUT", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", 236.22, 185.42, 90)
     sch += add_wire(223.52, 185.42, 232.41, 185.42)
     sch += add_label("LED_CAL_OUT", 223.52, 185.42, 180)
-    sch += add_wire(240.03, 185.42, 243.84, 185.42)
-    # LED_CAL_OUT at (247.65, 185.42, 180) -> Pin 2 (A): (243.84, 185.42), Pin 1 (K): (251.46, 185.42)
-    sch += add_sym("Device:LED", "LED_CAL_OUT", "BLUE (OUT_STAT)", "LED_THT:LED_D3.0mm", 247.65, 185.42, 180)
-    sch += add_wire(251.46, 185.42, 259.08, 185.42)
+    sch += add_sym("Device:LED", "LED_CAL_OUT", "BLUE (OUT_STAT)", "LED_THT:LED_D3.0mm", 243.84, 185.42, 180)
+    sch += add_wire(247.65, 185.42, 259.08, 185.42)
     sch += add_label("GND", 259.08, 185.42, 0)
 
     # SW_CAL_IN at (195.58, 220.98)
@@ -335,9 +334,8 @@ def build_perfect_schematic():
     sch += add_sym("Device:R", "R_LED_IN", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", 236.22, 220.98, 90)
     sch += add_wire(223.52, 220.98, 232.41, 220.98)
     sch += add_label("LED_CAL_IN", 223.52, 220.98, 180)
-    sch += add_wire(240.03, 220.98, 243.84, 220.98)
-    sch += add_sym("Device:LED", "LED_CAL_IN", "AMBER (IN_STAT)", "LED_THT:LED_D3.0mm", 247.65, 220.98, 180)
-    sch += add_wire(251.46, 220.98, 259.08, 220.98)
+    sch += add_sym("Device:LED", "LED_CAL_IN", "AMBER (IN_STAT)", "LED_THT:LED_D3.0mm", 243.84, 220.98, 180)
+    sch += add_wire(247.65, 220.98, 259.08, 220.98)
     sch += add_label("GND", 259.08, 220.98, 0)
 
     sch += add_text("SW_CAL_OUT: 15-ping pavement reference distance calibration.", 175.0, 245.0, 1.2, False)
@@ -354,7 +352,8 @@ def build_perfect_schematic():
     # Conn_01x06 pin dys: [5.08, 2.54, 0.0, -2.54, -5.08, -7.62] -> py = y - dy
     sch += add_sym("Connector_Generic:Conn_01x06", "J_AUX", "AUX EXPANSION BUS", "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical", 350.52, 198.12)
     aux_nets = ["+3V3", "LED_CAL_OUT", "LED_CAL_IN", "BTN_CAL_OUT", "BTN_CAL_IN", "GND"]
-    for net, dy in zip(aux_nets, usbc_pins):
+    conn6_dys = [5.08, 2.54, 0.0, -2.54, -5.08, -7.62]
+    for net, dy in zip(aux_nets, conn6_dys):
         py = 198.12 - dy
         sch += add_wire(335.28, py, 345.44, py)
         sch += add_label(net, 335.28, py, 180)
